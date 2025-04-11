@@ -941,7 +941,7 @@ section,
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(40, 58, 90, 0.3); /* Reduced opacity from 0.8 to 0.3 for better video visibility */
+  background: rgba(40, 58, 90, 0.4); /* Reduced opacity from 0.8 to 0.3 for better video visibility */
 }
 
 .hero .video-background video {
