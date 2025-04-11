@@ -1326,6 +1326,26 @@ section,
   padding: 50px 30px;
   transition: all ease-in-out 0.4s;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .services .service-item {
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .services .row {
+    margin: 0;
+  }
+
+  .services .col-xl-3 {
+    padding: 0 15px;
+  }
 }
 
 .services .service-item .icon {

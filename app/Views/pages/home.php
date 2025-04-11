@@ -21,7 +21,7 @@
           <p>Real-time insights for enhanced efficiency, reduced rework costs, and unwavering quality assurance for your welding operations</p>
           <div class="d-flex">
             <a href="#contact" class="btn-get-started">Contact us</a>
-            <a href="#" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Demo Video</span></a>
+            <a href="https://www.youtube.com/watch?v=IxX_QHay02M&ab_channel=W%26W" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Demo Video</span></a>
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@
           <p>We offer services for real-time insights for enhanced efficiency, reduced rework costs, and unwavering quality assurance.</p>
         </div>
         <div class="col-xl-3 cta-btn-container text-center">
-          <a class="cta-btn align-middle" href="#">Contact us</a>
+          <a class="cta-btn align-middle" href="#contact">Contact us</a>
         </div>
       </div>
 
