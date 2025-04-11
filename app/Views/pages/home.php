@@ -20,7 +20,7 @@
           <h1>Transforming heavy industries with cutting-edge IoT solutions</h1>
           <p>Real-time insights for enhanced efficiency, reduced rework costs, and unwavering quality assurance for your welding operations</p>
           <div class="d-flex">
-            <a href="#about" class="btn-get-started">Contact us</a>
+            <a href="#contact" class="btn-get-started">Contact us</a>
             <a href="#" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Demo Video</span></a>
           </div>
         </div>
