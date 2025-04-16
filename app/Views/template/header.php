@@ -12,8 +12,8 @@
                 <li><a href="#hero" class="active">Home</a></li>
                 <li class="dropdown"><a href=""><span>Category</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
-                        <li><a href="#">Welding Machine</a></li>
-                        <li><a href="#">CNC Machine</a></li>
+                        <li><a href="https://metronarc.marinternet.id">Welding Machine</a></li>
+                        <li><a href="https://metronarc-cnc.marinternet.id">CNC Machine</a></li>
                     </ul>
                 </li>
                 <li><a href="#contact">Contact</a></li>
