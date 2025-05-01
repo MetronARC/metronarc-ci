@@ -9,3 +9,7 @@ $routes->get('/', 'Pages::index');
 $routes->get('/about', 'Pages::about');
 $routes->get('/contact', 'Pages::contact');
 
+// Contact form routes
+$routes->post('contact/send', 'Contact::sendEmail');
+$routes->get('contact/captcha', 'Contact::generateCaptcha');
+

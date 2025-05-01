@@ -2,6 +2,10 @@
 
 <?= $this->section('content') ?>
 
+<!-- Add SweetAlert and jQuery CDN in the head section -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <main class="main">
 
   <!-- Hero Section -->
@@ -117,7 +121,6 @@
       <div class="row gy-4">
 
         <div class="col-lg-5">
-
           <div class="info-wrap">
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
@@ -127,53 +130,57 @@
               </div>
             </div><!-- End Info Item -->
 
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+65 9807 8025</p>
-              </div>
-            </div><!-- End Info Item -->
-
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4736.708703024176!2d103.8495087!3d1.2898642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19a0958fa7c5%3A0x50a3d9e38aea6147!2s1%20N%20Bridge%20Rd%2C%20%2318%2006%20High%20Street%20Centre%2C%20Singapore%20179094!5e1!3m2!1sen!2sid!4v1744354942306!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
 
         <div class="col-lg-7">
-          <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <form id="contactForm" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
             <div class="row gy-4">
 
               <div class="col-md-6">
                 <label for="name-field" class="pb-2">Your Name</label>
-                <input type="text" name="name" id="name-field" class="form-control" required="">
+                <input type="text" name="name" id="name-field" class="form-control" required>
               </div>
 
               <div class="col-md-6">
                 <label for="email-field" class="pb-2">Your Email</label>
-                <input type="email" class="form-control" name="email" id="email-field" required="">
+                <input type="email" class="form-control" name="email" id="email-field" required>
               </div>
 
               <div class="col-md-12">
                 <label for="subject-field" class="pb-2">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                <input type="text" class="form-control" name="subject" id="subject-field" required>
               </div>
 
               <div class="col-md-12">
                 <label for="message-field" class="pb-2">Message</label>
-                <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
+              </div>
+
+              <div class="col-md-12">
+                <div class="captcha-container">
+                  <label for="captcha-field" class="pb-2">Enter CAPTCHA Code</label>
+                  <div class="d-flex align-items-center gap-3">
+                    <input type="text" class="form-control" name="captcha" id="captcha-field" required style="width: 150px;" placeholder="Enter code">
+                    <div class="captcha-box" style="background: #e9ecef; padding: 8px 15px; border-radius: 4px; min-width: 150px; display: flex; align-items: center; justify-content: center;">
+                      <span id="captcha-display" style="font-size: 24px; font-weight: bold; letter-spacing: 3px; font-family: 'Courier New', monospace; color: #333;"></span>
+                    </div>
+                    <button type="button" class="btn btn-secondary" id="refresh-captcha" style="height: 45px; width: 45px;">
+                      <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                <button type="submit">Send Message</button>
+                <div class="loading" style="display: none;">Loading</div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
               </div>
 
             </div>
           </form>
-        </div><!-- End Contact Form -->
+        </div>
 
       </div>
 
@@ -183,5 +190,99 @@
   <!-- /Contact Section -->
 
 </main>
+
+<script>
+$(document).ready(function() {
+    // Get the base URL from CodeIgniter
+    const baseUrl = '<?= base_url() ?>';
+
+    // Function to generate new CAPTCHA
+    function generateCaptcha() {
+        $.get(baseUrl + '/contact/captcha', function(data) {
+            if(data && data.captcha) {
+                $('#captcha-display').text(data.captcha);
+            }
+        }).fail(function() {
+            console.error('CAPTCHA generation failed');
+        });
+    }
+
+    // Generate initial CAPTCHA
+    generateCaptcha();
+
+    // Refresh CAPTCHA button
+    $('#refresh-captcha').click(function(e) {
+        e.preventDefault();
+        generateCaptcha();
+    });
+
+    // Form submission
+    $('#contactForm').submit(function(e) {
+        e.preventDefault();
+
+        // Show loading state
+        $('.loading').show();
+        
+        // Get form data
+        var formData = {
+            name: $('#name-field').val(),
+            email: $('#email-field').val(),
+            subject: $('#subject-field').val(),
+            message: $('#message-field').val(),
+            captcha: $('#captcha-field').val()
+        };
+
+        // Send form data
+        $.ajax({
+            url: baseUrl + '/contact/send',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                // Hide loading state
+                $('.loading').hide();
+
+                if (response.status === 'success') {
+                    // Show success message
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: response.message,
+                        confirmButtonColor: '#3085d6'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Reset form
+                            $('#contactForm')[0].reset();
+                            // Generate new CAPTCHA
+                            generateCaptcha();
+                        }
+                    });
+                } else {
+                    // Show error message
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: response.message,
+                        confirmButtonColor: '#3085d6'
+                    });
+                    // Generate new CAPTCHA
+                    generateCaptcha();
+                }
+            },
+            error: function() {
+                // Hide loading state
+                $('.loading').hide();
+                
+                // Show error message
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong! Please try again later.',
+                    confirmButtonColor: '#3085d6'
+                });
+            }
+        });
+    });
+});
+</script>
 
 <?= $this->endSection() ?>
