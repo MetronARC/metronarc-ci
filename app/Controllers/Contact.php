@@ -47,7 +47,7 @@ class Contact extends Controller
 
             // 1. Send notification email to admin (inquiry@rigwise.com)
             $emailService->setFrom($userEmail, $name);
-            $emailService->setTo('inquiry@rigwise.com');
+            $emailService->setTo('info@metronarc.sg');
             $emailService->setSubject('New Contact Form Submission: ' . $subject);
             
             // Build admin email message
@@ -73,7 +73,7 @@ class Contact extends Controller
             $emailService->clear();
 
             // 2. Send auto-reply email to user
-            $emailService->setFrom('no-reply@rigwise.com', 'Rigwise Technologies Pte Ltd');
+            $emailService->setFrom('no-reply@metronarc.sg', 'Metronarc Technology Pte Ltd');
             $emailService->setTo($userEmail);
             $emailService->setSubject('[No Reply] Email Successfully Received');
             
@@ -81,7 +81,7 @@ class Contact extends Controller
             $autoReplyMessage = "
                 <p>Hello,</p>
                 <p>Thank you for reaching out. This is an automated message to confirm that we have successfully received your email.</p>
-                <p>Best regards,<br>Rigwise Technologies Pte Ltd</p>
+                <p>Best regards,<br>Metronarc Technology Pte Ltd</p>
             ";
             
             $emailService->setMessage($autoReplyMessage);
