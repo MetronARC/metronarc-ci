@@ -5,9 +5,8 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Pages::index');
-$routes->get('/about', 'Pages::about');
-$routes->get('/contact', 'Pages::contact');
+$routes->get('home', 'Pages::home');
+$routes->get('cnc', 'Pages::cnc');
 
 // Contact form routes
 $routes->post('contact/send', 'Contact::sendEmail');

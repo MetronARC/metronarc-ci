@@ -12,8 +12,8 @@
                 <li><a href="#hero" class="active">Home</a></li>
                 <li class="dropdown"><a href=""><span>Category</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
-                        <li><a href="https://metronarc.sg">Welding Machine</a></li>
-                        <li><a href="https://cnc.metronarc.sg">CNC Machine</a></li>
+                        <li><a href="home">Welding Machine</a></li>
+                        <li><a href="cnc">CNC Machine</a></li>
                     </ul>
                 </li>
                 <li><a href="#contact">Contact</a></li>

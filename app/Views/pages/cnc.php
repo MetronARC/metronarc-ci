@@ -12,7 +12,7 @@
   <section id="hero" class="hero section dark-background">
     <div class="video-background">
       <video autoplay muted loop playsinline>
-        <source src="assets/video/hero-welding.mp4" type="video/mp4">
+        <source src="assets/video/hero-cnc.mp4" type="video/mp4">
         <!-- Fallback image for browsers that don't support video -->
         <img src="assets/img/hero-img.png" alt="Hero Background">
       </video>
@@ -22,10 +22,10 @@
       <div class="row gy-4">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
           <h1>Transforming heavy industries with cutting-edge IoT solutions</h1>
-          <p>Real-time insights for enhanced efficiency, reduced rework costs, and unwavering quality assurance for your welding operations</p>
+          <p>Real-time insights for enhanced efficiency, reduced rework costs, and unwavering quality assurance for your cnc machine operations</p>
           <div class="d-flex">
             <a href="#contact" class="btn-get-started">Contact us</a>
-            <a href="https://www.youtube.com/watch?v=OCZbUGj-t2M&ab_channel=WarrenBuffalo" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Demo Video</span></a>
+            <a href="https://youtu.be/dyDG-DF0XAg" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Demo Video</span></a>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <div class="service-item position-relative">
             <div class="icon"><i class="bi bi-stopwatch"></i></div>
             <h4>Arc On-Off Time</h4>
-            <p>Arc-on Arc-off time per individual welder and machine</p>
+            <p>Arc-on Arc-off time per machine</p>
           </div>
         </div><!-- End Service Item -->
 
@@ -59,15 +59,15 @@
           <div class="service-item position-relative">
             <div class="icon"><i class="bi bi-graph-up"></i></div>
             <h4>Productivity Analysis</h4>
-            <p>Productivity analytics per welder, per station, per project.</p>
+            <p>Productivity analytics per machine, per station, per project.</p>
           </div>
         </div><!-- End Service Item -->
 
         <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
           <div class="service-item position-relative">
             <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-            <h4>Location and Down Time</h4>
-            <p>Welding machine location and down-time</p>
+            <h4>Down Time</h4>
+            <p>Identify downtime and improve machine utilization</p>
           </div>
         </div><!-- End Service Item -->
 
@@ -75,7 +75,7 @@
           <div class="service-item position-relative">
             <div class="icon"><i class="bi bi-exclamation-circle"></i></div>
             <h4>Real Time Alerts</h4>
-            <p>Real-time stop-work alerts based on weld specification attributes</p>
+            <p>Real-time stop-work alerts based on machine status</p>
           </div>
         </div><!-- End Service Item -->
 
@@ -89,7 +89,7 @@
   <!-- Call To Action Section -->
   <section id="call-to-action" class="call-to-action section dark-background">
 
-    <img src="assets/images/welding-image.jpg" alt="">
+    <img src="assets/images/cnc-image.jpg" alt="">
 
     <div class="container">
 
