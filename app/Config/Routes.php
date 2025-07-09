@@ -5,6 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+$routes->get('/', 'Pages::home');
 $routes->get('home', 'Pages::home');
 $routes->get('cnc', 'Pages::cnc');
 
